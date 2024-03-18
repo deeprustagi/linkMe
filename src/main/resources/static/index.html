@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Me</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <!-- Registration -->
+    <div class="container" id="register">
+        <!-- application section -->
+        <h1>Link Me</h1>
+        <hr>
+        <!-- Registration Form-->
+        <h2>User Registration</h2>
+        <form id="registrationForm">
+            <input type="text" id="firstname" placeholder="First Name" required>
+            <input type="text" id="lastname" placeholder="Last Name">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Register</button>
+        </form>
+        <p> Already having account ?, <a href="#" id="redirctToLogin">login</a></p>
+    </div>
+    <!-- Login -->
+    <div class="container hidden" id="login">
+        <!-- application section -->
+        <h1>Link Me</h1>
+        <hr>
+        <!-- Login Form -->
+        <h2>User Login</h2>
+        <form id="loginForm">
+            <input type="text" id="loginUsername" placeholder="Username" required>
+            <input type="password" id="loginPassword" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p> Not having account ?, <a href="#" id="redirctToRegister">register</a></p>
+    </div>
+
+    <script src="./js/index.js"></script>
+</body>
+
+</html>

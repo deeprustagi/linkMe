@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Me</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <div class="container" id="profile">
+
+        <!-- application section -->
+        <h1>Link Me</h1>
+        <hr>
+
+        <!-- user section -->
+        <ul id="welcomeList">
+            <li>
+                <h3 id="welcome"></h3>
+                <button id="logout">Logout</button>
+            </li>
+        </ul>
+
+        <!-- New File Section -->
+        <h2>Create New File</h2>
+        <form id="fileCreationForm">
+            <input type="text" id="fileName" placeholder="File Name" required>
+            <textarea id="fileContent" placeholder="File Content" required></textarea>
+            <button type="submit">Create File</button>
+        </form>
+
+        <!-- All Files Section -->
+        <h2>Your Files</h2>
+        <ul id="fileList"></ul>
+    </div>
+
+    <script src="./js/profile.js"></script>
+</body>
+
+</html>
