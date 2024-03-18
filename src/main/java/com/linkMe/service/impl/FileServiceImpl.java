@@ -4,7 +4,6 @@ import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.linkMe.models.File;
@@ -16,11 +15,14 @@ import com.linkMe.service.FileService;
 @Service
 public class FileServiceImpl implements FileService {
 
-  @Autowired
-  FileRepository fileRepository;
+  private FileRepository fileRepository;
 
-  @Autowired
-  UserRepository userRepository;
+  private UserRepository userRepository;
+
+  public FileServiceImpl(FileRepository fileRepository, UserRepository userRepository) {
+    this.fileRepository = fileRepository;
+    this.userRepository = userRepository;
+  }
 
   @Override
   public File createFile(File file, String userName) {

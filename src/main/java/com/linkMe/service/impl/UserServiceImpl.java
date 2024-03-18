@@ -1,6 +1,5 @@
 package com.linkMe.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.linkMe.models.User;
@@ -10,8 +9,11 @@ import com.linkMe.service.UserService;;
 @Service
 public class UserServiceImpl implements UserService {
 	
-	@Autowired
-	UserRepository userRepository;
+	private UserRepository userRepository;
+
+	public UserServiceImpl(UserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
 
 	@Override
 	public User registerUser(User user) {
@@ -27,7 +29,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User loginUser(User user) throws Exception {
-		User searchedUser = findUserByUserName(user.getUserName());
+		User searchedUser = userRepository.findByUserName(user.getUserName());
 		if (searchedUser != null && searchedUser.getPassword().equals(user.getPassword())) {
 				return searchedUser;
 		}
@@ -35,7 +37,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User findUserByUserName(String userName) throws Exception {
+	public User findUserByUserName(String userName) {
 		return userRepository.findByUserName(userName);
 	}
 

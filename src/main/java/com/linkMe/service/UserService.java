@@ -8,5 +8,5 @@ public interface UserService {
 
 	public User loginUser(User user) throws Exception;
 	
-	public User findUserByUserName(String userName) throws Exception;
+	public User findUserByUserName(String userName);
 }
