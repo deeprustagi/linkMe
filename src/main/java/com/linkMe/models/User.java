@@ -1,7 +1,9 @@
 package com.linkMe.models;
 
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -12,10 +14,17 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
 @Table(name = "users")
+@Getter
+@Setter
+@NoArgsConstructor
 public class User {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -31,12 +40,10 @@ public class User {
 	@Column(nullable = false)
 	private String password;
 
+	// https://stackoverflow.com/questions/47693110
+	@JsonIgnore
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-  private List<File> files = new ArrayList<>();
-	
-	public User() {
-		
-	}
+	private List<File> files = new ArrayList<>();
 
 	public User(String firstName, String lastName, String userName, String password) {
 		this.firstName = firstName;
@@ -44,55 +51,4 @@ public class User {
 		this.userName = userName;
 		this.password = password;
 	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public void addFile(File file) {
-		files.add(file);
-		file.setUser(this);
-	}
-
-	public void removeFile(File file) {
-			files.remove(file);
-			file.setUser(null);
-	}
-	
 }
