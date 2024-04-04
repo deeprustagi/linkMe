@@ -4,6 +4,11 @@ A Website for storing and sharing important text such as application logs for de
 * Backend: Java, Spring Boot with Hibernate
 * Database: MySQL
 
+## Architecture
+It is a spring boot application using REST API with Controller-Service-Repository layered architecture.
+![image](https://github.com/deeprustagi/linkMe/assets/57529623/5f1b3b3f-e349-4c66-b975-0c503217e8dd)
+
+
 ## Working
 
 #### Register/Login
